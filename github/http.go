@@ -41,8 +41,7 @@ var DefaultClient = http.DefaultClient
 func (c *Client) do(method, path string, in, out interface{}) error {
 
 	// create the URI
-	const prefix = "https://api.github.com"
-	uri, err := url.Parse(prefix + path)
+	uri, err := url.Parse(c.ApiUrl + path)
 	if err != nil {
 		return err
 	}
@@ -126,8 +125,7 @@ func (c *Client) do(method, path string, in, out interface{}) error {
 //      be removed at some point in the future.
 func (c *Client) raw(method, path string) ([]byte, error) {
 	// create the URI
-	const prefix = "https://api.github.com"
-	uri, err := url.Parse(prefix + path)
+	uri, err := url.Parse(c.ApiUrl + path)
 	if err != nil {
 		return nil, err
 	}
