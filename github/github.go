@@ -13,10 +13,12 @@ func New(token string) *Client {
 	c.Hooks = &HookResource{c}
 	c.Contents = &ContentResource{c}
 	c.RepoKeys = &RepoKeyResource{c}
+	c.ApiUrl = "https://api.github.com"
 	return c
 }
 
 type Client struct {
+	ApiUrl string
 	Token string
 
 	Repos    *RepoResource
