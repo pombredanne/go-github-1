@@ -8,6 +8,7 @@ import (
 type Owner struct {
 	Type  string `json:"type"`
 	Login string `json:"login"`
+	Name  string `json:"name"`
 }
 
 // Permissions
