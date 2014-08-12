@@ -45,7 +45,7 @@ type RepoResource struct {
 
 func (r *RepoResource) List() ([]*Repo, error) {
 	repos := []*Repo{}
-	if err := r.client.do("GET", "/user/repos?per_page=100&type=owner", nil, &repos); err != nil {
+	if err := r.client.do("GET", "/user/repos?per_page=100&type=all", nil, &repos); err != nil {
 		return nil, err
 	}
 
@@ -54,7 +54,7 @@ func (r *RepoResource) List() ([]*Repo, error) {
 
 func (r *RepoResource) ListUser(username string) ([]*Repo, error) {
 	repos := []*Repo{}
-	path := fmt.Sprintf("/users/%s/repos?per_page=100&type=owner", username)
+	path := fmt.Sprintf("/users/%s/repos?per_page=100&type=all", username)
 	if err := r.client.do("GET", path, nil, &repos); err != nil {
 		return nil, err
 	}
@@ -64,7 +64,7 @@ func (r *RepoResource) ListUser(username string) ([]*Repo, error) {
 
 func (r *RepoResource) ListOrg(orgname string) ([]*Repo, error) {
 	repos := []*Repo{}
-	path := fmt.Sprintf("/orgs/%s/repos?page=0&per_page=100&type=owner", orgname)
+	path := fmt.Sprintf("/orgs/%s/repos?page=0&per_page=100&type=all", orgname)
 	if err := r.client.do("GET", path, nil, &repos); err != nil {
 		return nil, err
 	}
