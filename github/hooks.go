@@ -168,7 +168,7 @@ func (r *HookResource) DeleteUrl(owner, repo, link string) error {
 
 type PullRequest struct {
 	Id        int    `json:"int"`
-	Number    int    `json:"int"`
+	Number    int    `json:"number"`
 	Url       string `json:"url"`
 	State     string `json:"state"` // open, closed, etc
 	Title     string `json:"title"`
@@ -244,10 +244,10 @@ type PostReceiveHook struct {
 }
 
 type CommitRepo struct {
-	Url    string `json:"url"`
-	Name   string `json:"name"`
-	Desc   string `json:"description"`
-	Owner  *Owner `json:"owner"`
+	Url   string `json:"url"`
+	Name  string `json:"name"`
+	Desc  string `json:"description"`
+	Owner *Owner `json:"owner"`
 }
 
 type Commit struct {
